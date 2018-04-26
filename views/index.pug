@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    h1#title= title
+    h3  To calculate pitching average, you can search for a player:
+    form(method='POST' action='/search')
+        div.form-group
+            label.label Name
+            input.input-box(type='text', placeholder='First Name' name='firstName')
+            input.input-box(type='text', placeholder='Last Name' name='lastName')
+            button.submit(type='submit') Search 
+        h3  or enter in stats manually:
+        if pa != ''
+            p.result Results for 
+            p.result=firstName
+            p.result  
+            p.result=lastName 
+            p.result : 
+            p=pa

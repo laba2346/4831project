@@ -1,0 +1,54 @@
+body {
+  padding: 50px;
+  font: 20px "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
+}
+
+.form-group {
+    background-color:#F0F0F0;
+    border-radius:5px;
+    padding-left:10px;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.input-box {
+    border-radius:5px;
+    width:250px;
+    height:20px;
+    border: 1px solid #ccc;
+    margin-right:5px;
+}
+
+.submit {
+    background-color: #008CBA;
+    border-radius:10px;
+    border:none;
+    width:80px;
+    height: 25px;
+    color:white;
+}
+
+.submit:hover{
+    background-color:#00A3D8;
+    cursor:pointer;
+}
+
+.result {
+    display:inline;
+}
+
+#title {
+    border-bottom: 1px solid black;
+}
+
+.input-box:focus {
+    border-color: #333;
+}
+
+label{
+    font: 20px "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
+    margin-right:10px;
+}
+a {
+  color: #00B7FF;
+}
