@@ -17,7 +17,7 @@ router.post('/search', function(req, res, next) {
         console.log(data);
         res.render('index', { 
             title: 'Pitching Average Calculator', 
-            k: data.kscore, 
+            kscore: data.kscore, 
             firstName: data.first, 
             lastName: data.last, 
             kOneOB: data.koneob,
