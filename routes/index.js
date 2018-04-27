@@ -16,7 +16,8 @@ router.get('/search', function(req, res, next){
 router.post('/search', function(req, res, next) {
     console.log("Received search request for" + req.body.firstName + " " + req.body.lastName);
     db.any('SELECT * FROM pitchers WHERE last = $1', 'Kershaw').then(function(data) {
-        res.render('index', { title: 'Pitching Average Calculator', pa: 'Just searched!', firstName: data, lastName: req.body.lastName});
+        console.log(data);
+        res.render('index', { title: 'Pitching Average Calculator', pa: 'Just searched!', firstName: req.body.firstName, lastName: req.body.lastName});
     })
 });
 
