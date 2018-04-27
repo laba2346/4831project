@@ -4,6 +4,9 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var pgp = require('pg-promise');
+var db = pgp('postgres://fhttwaphawybpt:d888c67b12c6aaf6f7bcd61926302aa6d1b882d1a068adfb5419ec9da650b8f4@ec2-54-235-193-34.compute-1.amazonaws.com:5432/dbkt5tfgdagmv7');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
