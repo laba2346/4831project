@@ -15,6 +15,7 @@ router.post('/search', function(req, res, next) {
     console.log("Received search request for" + req.body.firstName + " " + req.body.lastName);
     db.one('SELECT * FROM pitchers WHERE first= $1 AND last = $2', [req.body.firstName, req.body.lastName]).then(function(data) {
         console.log(data);
+        console.log(data.kscore);
         res.render('index', { 
             title: 'Pitching Average Calculator', 
             kscore: data.kscore, 
