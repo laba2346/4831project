@@ -283,14 +283,14 @@ INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeo
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('nolar001', 'Ricky', 'Nolasco', 150, 943, 57, 349, 9, 62, 2.49758907);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('norrb001', 'Bud', 'Norris', 188, 913, 86, 348, 26, 75, 4.23116727);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('novai001', 'Ivan', 'Nova', 129, 678, 43, 243, 12, 45, 3.36111658);
-INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('odayd001', 'Darren', "O'Day", 63, 247, 22, 99, 3, 22, 3.30222985);
-INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('oflae001', 'Eric', "O'Flaherty", 48, 242, 25, 117, 10, 25, 4.28036213);
+INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('odayd001', 'Darren', 'O''Day', 63, 247, 22, 99, 3, 22, 3.30222985);
+INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('oflae001', 'Eric', 'O''Flaherty', 48, 242, 25, 117, 10, 25, 4.28036213);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('ogana001', 'Alexi', 'Ogando', 74, 419, 38, 203, 7, 35, 3.00169958);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('ohler001', 'Ross', 'Ohlendorf', 55, 349, 29, 142, 2, 27, 2.34803911);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('ohmaw001', 'Will', 'Ohman', 33, 158, 17, 80, 9, 26, 4.05895777);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('olivd001', 'Darren', 'Oliver', 61, 300, 30, 111, 5, 32, 3.37405764);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('ondrl001', 'Logan', 'Ondrusek', 44, 274, 22, 161, 5, 32, 2.41905429);
-INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('osuls001', 'Sean', "O'Sullivan", 20, 242, 11, 103, 3, 21, 1.75796928);
+INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('osuls001', 'Sean', 'O''Sullivan', 20, 242, 11, 103, 3, 21, 1.75796928);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('oswar001', 'Roy', 'Oswalt', 109, 616, 46, 186, 1, 17, 2.60945244);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('ottaa001', 'Adam', 'Ottavino', 53, 248, 14, 97, 10, 29, 3.71303327);
 INSERT INTO pitchers (PIT_ID, first, last, koneob, oneob, ktwoob, twoob, kthreeob, threeob, kscore) VALUES ('outmj001', 'Josh', 'Outman', 32, 213, 23, 97, 7, 15, 4.47767738);
