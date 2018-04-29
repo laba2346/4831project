@@ -3,12 +3,12 @@ var router = express.Router();
 var db = require('../db');
 
 router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Pitching Average Calculator', pa: ''});
+    res.render('index', { title: 'K Score Calculator | Landon Baxter', pa: ''});
 });
 
 router.get('/search', function(req, res, next){
     req.url = '/';
-    res.render('index', { title: 'Pitching Average Calculator', pa: ''} );
+    res.render('index', { title: 'K Score Calculator | Landon Baxter', pa: ''} );
 });
 
 router.post('/search', function(req, res, next) {
@@ -17,7 +17,7 @@ router.post('/search', function(req, res, next) {
         console.log(data);
         console.log(data.kscore);
         res.render('index', { 
-            title: 'Pitching Average Calculator', 
+            title: 'K Score Calculator | Results', 
             kscore: data.kscore, 
             firstName: data.first, 
             lastName: data.last, 
