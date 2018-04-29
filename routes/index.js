@@ -28,7 +28,9 @@ router.post('/search', function(req, res, next) {
             kThreeOB: data.kthreeob,
             threeOB: data.threeob
         });
-    })
+    }).catch(function (error) {
+    console.log('ERROR:', error)
+  });
 });
 
 module.exports = router;

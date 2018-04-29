@@ -1,8 +1,20 @@
 extends layout
-
 block content
-    h1#title= title
-    h3  To calculate pitching average, you can search for a player:
+    - var oneOBper = (kOneOB / oneOB).toFixed(3);
+    - var twoOBper = (kTwoOB / twoOB).toFixed(3);
+    - var threeOBper = (kThreeOB / threeOB).toFixed(3);
+    head
+        script(type="text/javascript" src="/MathJax/MathJax.js?config=TeX-MML-AM_CHTML")
+        script(type="text/x-mathjax-config").
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']],
+                    skipTags: ["script","noscript","style","textarea","code"]
+                }
+            });
+    h1#title K Score Calculator
+    body 
+        p  To calculate a K score, you can search for a player:
     form(method='POST' action='/search')
         div.form-group
             label.label Name
@@ -11,9 +23,31 @@ block content
             button.submit(type='submit') Search 
         h3  or enter in stats manually:
         if kscore != NULL
-            p.result Results for 
-            p.result=firstName
-            p.result  
-            p.result=lastName
-            p.result : 
-            p=kscore    
+            p.result Results
+            body
+                p #{firstName} #{lastName} has the following strikeout numbers: 
+                ul
+                    li 
+                        | He has pitched with one runner on base 
+                        strong #{oneOB}  
+                        | times. With these conditions, he has produced 
+                        strong #{kOneOB} 
+                        | strikeouts. 
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a one-runner strikeout percentage of $ \frac{ #{kOneOB} }{ #{oneOB} } = #{oneOBper} $.
+                    li 
+                        | He has pitched with two runners on base 
+                        strong #{twoOB} 
+                        | times. With these conditions, he has produced 
+                        strong #{kTwoOB} 
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a two-runner strikeout percentage of $ \frac{ #{kTwoOB} }{ #{twoOB} } = #{twoOBper} $. 
+                    li 
+                        | He has pitched with three runners on base 
+                        strong #{threeOB} 
+                        | times. With these conditions, he has produced 
+                        strong #{kThreeOB} 
+                        | strikeouts.
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a three-runner strikeout percentage of $ \frac{ #{kThreeOB} }{ #{threeOB} } = #{threeOBper} $. 
+                 
