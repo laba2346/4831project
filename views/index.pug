@@ -24,22 +24,34 @@ block content
                 em under pressure, 
                 | so it is necessary to assign more weight to higher pressure situations, that is, when there are more runners on base.  
     
-            p  The full formula and necessary variables are seen below. 
+            p  The full formula and necessary constants are seen below. 
             p#equation 
                 |\begin{align} 
-                |  kScore = 1*\frac{\text{one runner strikeout rate}}{\text{lgAverage one runner strikeout rate}}+2*\frac{\text{two runner strikeout rate}}{\text{lgAverage two runner strikeout rate}}+3*\frac{\text{three runner strikeout rate}}{\text{lgAverage three runner strikeout rate}}
+                |  kScore &= 1*\frac{\text{one runner strikeout rate}}{\text{lgAverage one runner strikeout rate}}+2*\frac{\text{two runner strikeout rate}}{\text{lgAverage two runner strikeout rate}}+3*\frac{\text{three runner strikeout rate}}{\text{lgAverage three runner strikeout rate}}\\
                 |\end{align}
+            ul
+                li $\text{lgAverage one runner strikeout rate} = 0.1801$
+                li $\text{lgAverage two runner strikeout rate} = 0.1862$
+                li $\text{lgAverage three runner strikeout rate} = 0.1969$
+            p Note that the league averages were calculated using retrosheet, meaning they are derived from 2010-2013 data. 
         h2#title How K Score Compares to Other Statistics 📈
+        div.textClass
+            p A few stats that are used to describe the performance of a pitcher are earned run average (ERA) and hits allowed (H). To better understand how useful K score is, I produced scatterplots and correlation scores between K Score and ERA/H. The image below shows my findings. 
+            img#charts(src="https://i.imgur.com/j2kafez.png" alt="image Title")
+            p Clearly, the correlation between pitching score and other pitching stats is not incredibly strong. However, it has a somewhat noteworthy negative correlation with ERA, which makes sense. If a pitcher throws more strikeouts and can do so under pressure, then they will probably allow fewer runs on average. This is reflected in the correlation score of -0.45. Hits, on the other hand, have a weaker negative correlation with K score. This is surprising: one would expect fewer hits if a pitcher successfully produces strikeouts most of the time. Nonetheless, there is a correlation score of only -0.18 between K score and hits allowed.  
         h2#title K Score Calculator 📝
         if kscore == NULL 
             div.textClass
-                p  To calculate a K score, search for a player:
+                p  To calculate a K score for 2010-2013, search for a player:
                 form(method='POST' action='/search')
                     div.form-group
                         label.label Name
                         input.input-box(type='text', placeholder='First Name' name='firstName')
                         input.input-box(type='text', placeholder='Last Name' name='lastName')
                         button.submit(type='submit') Search 
+                if err != NULL
+                    script(src="javascripts/search.js") 
+                    p.err=err
         if kscore != NULL
             script(src="javascripts/search.js") 
             div.textClass
@@ -69,10 +81,17 @@ block content
                         | strikeouts.
                         ul
                             li Therefore, #{firstName} #{lastName} has a three-runner strikeout percentage of $ \frac{ #{kThreeOB} }{ #{threeOB} } = #{threeOBper} $. 
+                p Results:
+                p#equation
+                    |\begin{align} 
+                    |  k_{#{lastName}} &= 1*\frac{\text{#{oneOBper}}}{0.1801}+2*\frac{#{twoOBper}}{0.1862}+3*\frac{#{threeOBper}}{0.1969} = #{kscore}\\
+                    |\end{align}
                 p#search2  To calculate another K score, search for a player:
                 form(method='POST' action='/search')
                     div.form-group
                         label.label Name
                         input.input-box(type='text', placeholder='First Name' name='firstName')
                         input.input-box(type='text', placeholder='Last Name' name='lastName')
-                        button.submit(type='submit') Search 
+                        button.submit(type='submit') Search
+                    if err != NULL
+                        p.err=err 

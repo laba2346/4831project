@@ -12,25 +12,37 @@ router.get('/search', function(req, res, next){
 });
 
 router.post('/search', function(req, res, next) {
-    console.log("Received search request for" + req.body.firstName + " " + req.body.lastName);
-    db.one('SELECT * FROM pitchers WHERE first= $1 AND last = $2', [req.body.firstName, req.body.lastName]).then(function(data) {
-        console.log(data);
-        console.log(data.kscore);
-        res.render('index', { 
-            title: 'K Score Calculator | Results', 
-            kscore: data.kscore, 
-            firstName: data.first, 
-            lastName: data.last, 
-            kOneOB: data.koneob,
-            oneOB: data.oneob,
-            kTwoOB: data.ktwoob,
-            twoOB: data.twoob,
-            kThreeOB: data.kthreeob,
-            threeOB: data.threeob
-        });
-    }).catch(function (error) {
-    console.log('ERROR:', error)
-  });
+    var firstName = req.body.firstName.replace(/ /g,'');
+    firstName = firstName[0].toUpperCase() + firstName.substr(1).toLowerCase();
+    var lastName = req.body.lastName.replace(/ /g, '');
+    lastName = lastName[0].toUpperCase() + lastName.substr(1).toLowerCase();
+    if(firstName.includes(';') || firstName.includes(';') || lastName.includes(';') || lastName.includes(';')){
+        res.render('index', {title: 'K Score Calculator | Landon Baxter'});
+    }
+    console.log("Received search request for " + req.body.firstName + " " + req.body.lastName);
+        db.one('SELECT * FROM pitchers WHERE first= $1 AND last = $2', [firstName, lastName])
+            .then(function(data) {
+                console.log(data);
+                console.log(data.kscore);
+                res.render('index', { 
+                    title: 'K Score Calculator | Results', 
+                    kscore: data.kscore, 
+                    firstName: data.first, 
+                    lastName: data.last, 
+                    kOneOB: data.koneob,
+                    oneOB: data.oneob,
+                    kTwoOB: data.ktwoob,
+                    twoOB: data.twoob,
+                    kThreeOB: data.kthreeob,
+                    threeOB: data.threeob
+                });
+            })
+            .catch(function(err){
+                res.render('index', {
+                    title:'K Score Calculator | Landon Baxter',
+                    err: 'Invalid search. Try again.'
+                });
+            });
 });
 
 module.exports = router;

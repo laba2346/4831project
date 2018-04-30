@@ -11,6 +11,21 @@ body {
     font-size:23px;
 }
 
+.oneOB {
+    color: red;
+}
+
+.twoOB {
+    color: green;
+}
+
+.err {
+    color:red;
+}
+
+.threeOB{
+    color: blue;
+}
 #num {
     font-weight:bold;
 }
@@ -25,6 +40,12 @@ body {
 
 #search2{
     margin-top:10px;
+}
+
+#charts{
+    max-width:50%;
+    max-height:50%;
+    margin:auto;
 }
 
 .textClass {
