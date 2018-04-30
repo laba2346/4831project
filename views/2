@@ -1,0 +1,66 @@
+extends layout
+block content
+    - var oneOBper = (kOneOB / oneOB).toFixed(3);
+    - var twoOBper = (kTwoOB / twoOB).toFixed(3);
+    - var threeOBper = (kThreeOB / threeOB).toFixed(3);
+    head
+        script(type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML")
+        script(type="text/x-mathjax-config").
+            MathJax.Hub.Config({
+                tex2jax: {
+                    inlineMath: [['$','$'], ['\\(','\\)']],
+                    skipTags: ["script","noscript","style","textarea","code"]
+                }
+            });
+    title K Score Calculator | Landon Baxter
+    h1#title K Score Calculator ⚾️
+    body 
+        p  K Score is a measure of a pitcher's ability to produce strikeouts under pressure, relative to the league at the time. A pitcher is considered to be under pressure when he is pitching with runners on base. I have defined three different levels of pressure (base states)  according to the number of runners on base (one runner on base, two runners on base, and three runners on base). To calculate K score for a given pitcher, one must calculate that pitcher's strikeout rate for each of the three base states, where strikeout rate is given by the number of strikeouts while in that base state divided by the number of the times that the pitcher has pitched in that base state.
+        p For example, a pitcher who has 100 strikeouts with two runners on base and has pitched with two runners on base 400 times would have a two runner strikeout rate of $100/400 = .25$. In other words, this pitcher throws a strikeout with two runners on based 25% of the time. 
+        p We also want to adjust each of these rates according to the performance of other pitchers in the same time period. Therefore, I have chosen to calculate the league average strikeout rates for each of the three base states and divide a player's strikeout rates by the corresponding league average. By dividing a player's strikeout rate by the league average, we are able to measure a player's ability to strikeout batters under pressure relative to the other pitchers at the time. The higher this ratio is, the higher above average the pitcher is when pitching in that base state.    
+        p Finally, we sum up the ratios between a player's strikeout rates and the league averages and weight each ratio by the "pressure level", which is given by the number of runners on base. This statistic is measuring a pitcher's ability to effectively pitch
+        em under pressure,
+        | so it is necessary to assign more weight to higher pressure situation, that is, when there are more runners on base. 
+        p The full formula and necessary variables are seen below. 
+        div
+            \\begin{equation}
+            K_Score = 1*\frac{\text{one-runner strikeout rate}}{\text{league average strikeout rate}}
+            \\end{equation}
+        p  To calculate a K score, you can search for a player:
+    form(method='POST' action='/search')
+        div.form-group
+            label.label Name
+            input.input-box(type='text', placeholder='First Name' name='firstName')
+            input.input-box(type='text', placeholder='Last Name' name='lastName')
+            button.submit(type='submit') Search 
+        h3  or enter in stats manually:
+        if kscore != NULL
+            p.result Results
+            body
+                p #{firstName} #{lastName} has the following strikeout numbers: 
+                ul
+                    li 
+                        | He has pitched with one runner on base 
+                        strong #{oneOB}  
+                        | times. With these conditions, he has produced 
+                        strong #{kOneOB} 
+                        | strikeouts. 
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a one-runner strikeout percentage of $ \frac{ #{kOneOB} }{ #{oneOB} } = #{oneOBper} $.
+                    li 
+                        | He has pitched with two runners on base 
+                        strong #{twoOB} 
+                        | times. With these conditions, he has produced 
+                        strong #{kTwoOB} 
+                        | strikeouts.
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a two-runner strikeout percentage of $ \frac{ #{kTwoOB} }{ #{twoOB} } = #{twoOBper} $. 
+                    li 
+                        | He has pitched with three runners on base 
+                        strong #{threeOB} 
+                        | times. With these conditions, he has produced 
+                        strong #{kThreeOB} 
+                        | strikeouts.
+                    ul
+                        li Therefore, #{firstName} #{lastName} has a three-runner strikeout percentage of $ \frac{ #{kThreeOB} }{ #{threeOB} } = #{threeOBper} $. 
+                 

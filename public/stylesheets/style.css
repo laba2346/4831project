@@ -3,6 +3,14 @@ body {
   font: 20px "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
 }
 
+#equation {
+    background-color:#ECFAFF;
+    border-radius:16px;
+    padding-top:8px;
+    padding-bottom:8px;
+    font-size:23px;
+}
+
 #num {
     font-weight:bold;
 }
@@ -12,8 +20,17 @@ body {
     padding-left:10px;
     padding-top:5px;
     padding-bottom:5px;
+    margin-bottom:10px;
 }
 
+#search2{
+    margin-top:10px;
+}
+
+.textClass {
+    margin-right:40px;
+    margin-left:40px;
+}
 .input-box {
     border-radius:5px;
     width:250px;
@@ -41,8 +58,9 @@ body {
 }
 
 #title {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #C7C7C7;
 }
+
 
 .input-box:focus {
     border-color: #333;
