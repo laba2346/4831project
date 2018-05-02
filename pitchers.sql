@@ -1,3 +1,5 @@
+# Queries for inserting data into production and development databases
+
 INSERT INTO pitchers (PIT_ID, first, last, kOneOB, oneOB, kTwoOB, twoOB, kThreeOB, threeOB, kScore) VALUES ('aardd001', 'David', 'Aardsma', 17, 118, 12, 45, 3,12, 7.47327597);
 INSERT INTO pitchers (PIT_ID, first, last, kOneOB, oneOB, kTwoOB, twoOB, kThreeOB, threeOB, kScore) VALUES ('abadf001', 'Fernando', 'Abad', 33, 165, 14, 80, 4,15, 7.05316954);
 INSERT INTO pitchers (PIT_ID, first, last, kOneOB, oneOB, kTwoOB, twoOB, kThreeOB, threeOB, kScore) VALUES ('abrej002', 'Juan', 'Abreu', 2, 8, 2, 8, 2,2, 19.30956284);
