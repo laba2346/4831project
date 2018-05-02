@@ -5,7 +5,7 @@ LIMIT 0, 5000
 -- Date: 2018-04-29 20:26
 */
 
-### Used to produce the table for lahman
+### Used to produce the table for lahman, which is then used to compare to other stats
 DROP TABLE pitchers_kscore;
 CREATE TABLE pitchers_kscore(
 	PIT_ID VARCHAR(100) NOT NULL,

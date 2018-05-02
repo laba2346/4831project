@@ -1,5 +1,9 @@
 USE retrosheet;
 
+
+# SQL statements to produce the data for the calculation of K Score
+
+
 #League Average for 1 runner on base (.1801)
 SELECT COUNT(*)/
 (
