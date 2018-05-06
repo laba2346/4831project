@@ -12,14 +12,9 @@ router.get('/search', function(req, res, next){
 });
 
 router.post('/search', function(req, res, next) {
-    var firstName = req.body.firstName;
-    firstName = firstName[0].toUpperCase() + firstName.substr(1).toLowerCase();
-    var lastName = req.body.lastName;
-    lastName = lastName[0].toUpperCase() + lastName.substr(1).toLowerCase();
-    if(firstName.includes(';') || firstName.includes(';') || lastName.includes(';') || lastName.includes(';')){
-        res.render('index', {title: 'K Score Calculator | Landon Baxter'});
-    }
-    else { 
+    var firstName = cleanName(req.body.firstName);
+    var lastName = cleanName(req.body.lastName);
+    if(firstName != '' && lastName != ''){
         console.log("Received search request for " + req.body.firstName + " " + req.body.lastName);
         db.one('SELECT * FROM pitchers WHERE first= $1 AND last = $2', [firstName, lastName])
             .then(function(data) {
@@ -43,8 +38,13 @@ router.post('/search', function(req, res, next) {
                     title:'K Score Calculator | Landon Baxter',
                     err: 'Invalid search. Try again.'
                 });
-            });
+            }); 
     }
 });
-
+    
+function cleanName(name) {
+    if(name != ''){
+        return name[0].toUpperCase() + name.substr(1).toLowerCase();
+    }
+}
 module.exports = router;

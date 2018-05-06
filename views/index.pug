@@ -39,6 +39,16 @@ block content
             p A few stats that are used to describe the performance of a pitcher are earned run average (ERA) and hits allowed (H). To better understand how useful K score is, I produced scatterplots and correlation scores between K Score and ERA/H for pitchers with more than 50 appearances. The image below shows my findings. 
             img#charts(src="https://i.imgur.com/j2kafez.png" alt="image Title")
             p Clearly, the correlation between pitching score and other pitching stats is not incredibly strong. However, it has a somewhat noteworthy negative correlation with ERA, which makes sense. If a pitcher throws more strikeouts and can do so under pressure, then they will probably allow fewer runs on average. This is reflected in the correlation score of -0.45. Hits, on the other hand, have a weaker negative correlation with K score -- only -0.18. This is surprising: one would expect fewer hits if a pitcher successfully produces strikeouts most of the time. Perhaps this is due to the "luck" factor with hitting and the fact that the charts consider a span of three years. A pitcher might allow fewer hits one year, simply because the hits he gave up were luckily fielded by his defense. This same pitcher might see his hits allowed jump the next year because the hitters have better luck placing the ball on the field where the fielders are not. Because of this variance (which is related to the year-to-year variance in batting average), hits allowed is a difficult stat to compare against. Additionally, we are comparing pitchers of all kinds in these plots -- relief pitchers, starting pitchers, pitchers who play both roles at times, and so on. Combining these groups may be making the data more noisy. Regardless, both ERA and hits allowed produced negative correlations with K score (even if they aren't incredibly strong), which is to be expected with a pitching stat that measures a pitcher's ability to throw strikeouts under pressure.  
+        h2#title K Score Descriptive Statistics 📊
+        div.textClass
+            p Before exploring the K Score of individual players, it is necessary to discuss the descriptive statistics of K Score around the league. This will allow us to understand how impressive a player's K Score is. Below is a histogram of K Scores from all pitchers in the league from 2010-2013, as well as the corresponding descriptive stats:
+            img#hist(src="https://i.imgur.com/PvH8Mi5.png" alt="Histogram")
+            ul
+                li Mean: 6.44
+                li Standard Deviation: 2.41
+                li Min: 1.73
+                li Max: 22.57
+                li Median: 6.17 
         h2#title K Score Calculator 📝
         if kscore == NULL 
             div.textClass
@@ -83,11 +93,20 @@ block content
                         | strikeouts.
                         ul
                             li Therefore, #{firstName} #{lastName} has a three-runner strikeout percentage of $ \frac{ #{kThreeOB} }{ #{threeOB} } = #{threeOBper} $. 
+                - var stdAway = (Math.abs(kscore-6.445255)/2.406805).toFixed(3)
+                - var diff = (kscore-6.445255).toFixed(3)
                 p Results:
-                p#equation
+                div#equation
                     |\begin{align} 
                     |  k_{#{lastName}} &= 1*\frac{\text{#{oneOBper}}}{0.1801}+2*\frac{#{twoOBper}}{0.1862}+3*\frac{#{threeOBper}}{0.1969} = #{kscore}\\
                     |\end{align}
+                    ul
+                        if diff > 0
+                            li #{firstName} #{lastName}'s K Score is #{diff} points above average.
+                        if diff < 0
+                            - diff = -diff 
+                            li #{firstName} #{lastName}'s K Score is #{diff} points below average.
+                        li His K Score is #{stdAway} standard deviations from the mean.
                 p#search2  To calculate another K score, search for a player:
                 form(method='POST' action='/search')
                     div.form-group

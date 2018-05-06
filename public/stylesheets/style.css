@@ -11,6 +11,10 @@ body {
     font-size:18px;
 }
 
+#hist{
+    width:35%;
+    height:35%;
+}
 .oneOB {
     color: red;
 }
