@@ -85,3 +85,12 @@ JOIN pitchers_kscore k on k.PIT_ID = m.retroID
 WHERE yearID in (2010, 2011, 2012, 2013) 
 GROUP BY playerID, retroID, kscore
 HAVING totalgames > 50;
+
+
+#produce CSV for calculating average/other descriptive statistics 
+SELECT p.playerID, m.retroID, kscore
+FROM Pitching p
+JOIN Master m on m.playerID = p.playerID
+JOIN pitchers_kscore k on k.PIT_ID = m.retroID
+WHERE yearID in (2010, 2011, 2012, 2013) 
+GROUP BY playerID, retroID, kscore;
