@@ -1,7 +1,7 @@
 # K Score  
 CSCI 4831 Final Project by Landon Baxter  
 ## Video  
-[Click here](https://youtu.be/ZlTfXoN3UI4) to view the presentation.  
+[Click here](https://youtu.be/qxJhonb8RAc) to view the presentation.  
 ## Website
 [Click here](https://kscore4831.herokuapp.com) or on the link at the top of the repo to visit the website.
 ## Explanation   
