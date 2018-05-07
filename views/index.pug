@@ -14,7 +14,10 @@ block content
         script(type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js") 
     title K Score Calculator | Landon Baxter
     body
-        h1#title K Score ⚾️
+        div#head
+            h1#headtxt K Score ⚾️
+            a(href="https://github.com/laba2346/4831project" target="_blank")
+                img#git(src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2000px-Octicons-mark-github.svg.png")
         div.textClass 
             p  K Score is a measure of a pitcher's ability to produce strikeouts under pressure, relative to the league at the time. A pitcher is considered to be under pressure when he is pitching with runners on base. I have defined three different levels of pressure (base states)  according to the number of runners on base (one runner on base, two runners on base, and three runners on base). To calculate K score for a given pitcher, one must calculate that pitcher's strikeout rate for each of the three base states, where strikeout rate is given by the number of strikeouts while in that base state divided by the number of the times that the pitcher has pitched in that base state.
             p For example, a pitcher who has 100 strikeouts with two runners on base and has pitched with two runners on base 400 times would have a two runner strikeout rate of $100/400 = .25$. In other words, this pitcher throws a strikeout with two runners on based 25% of the time. 

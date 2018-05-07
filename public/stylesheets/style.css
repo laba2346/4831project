@@ -3,6 +3,14 @@ body {
   font: 20px "Baskerville Old Face", "Goudy Old Style", Garamond, "Times New Roman", serif;
 }
 
+#head {
+    height:100%;
+    border-bottom: 1px solid #C7C7C7;
+}
+#headtxt{
+    display:inline;
+    width:20%;
+}
 #equation {
     background-color:#ECFAFF;
     border-radius:16px;
@@ -11,6 +19,17 @@ body {
     font-size:18px;
 }
 
+#git {
+    display: inline;
+    float: right;
+    width:3.5%;
+    height:3.5%;
+}
+
+#git:hover{
+    opacity: 0.75;
+    cursor: pointer;
+}
 #hist{
     width:35%;
     height:35%;

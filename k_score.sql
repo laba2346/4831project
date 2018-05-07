@@ -78,7 +78,7 @@ SELECT * FROM pitchers;
 use lahman2016;
 
 #produce CSV for comparing K score to other pitching stats
-SELECT p.playerID, m.retroID, kscore, SUM(G) as totalgames, SUM(H) as totalhits, SUM(W) as totalwins, SUM(ER) as totalER, SUM(IP) as totalinnings, SUM(ER)*9/SUM(IP) as totalERA
+SELECT p.playerID, m.retroID, kscore, SUM(G) as totalgames, SUM(H) as totalhits, SUM(W) as totalwins, SUM(ER) as totalER, SUM(IP) as totalinnings, SUM(ER)*9/SUM(IP) as totalERA, SUM(SO) as Strikeouts
 FROM Pitching p
 JOIN Master m on m.playerID = p.playerID
 JOIN pitchers_kscore k on k.PIT_ID = m.retroID
