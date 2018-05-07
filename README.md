@@ -1,7 +1,7 @@
 # K Score  
 CSCI 4831 Final Project by Landon Baxter  
 ## Video  
- to view the presentation.  
+[Click here](https://youtu.be/ZlTfXoN3UI4) to view the presentation.  
 
 ## Explanation   
 
